@@ -15,7 +15,7 @@ app.get("*", (req, res) => {
 });
 
 try {
-	app.listen(port, (): void => {
+	app.listen(process.env.PORT || port, (): void => {
 		console.log(
 			`Connected successfully on port ${port}, click http://localhost:${port}`
 		);
