@@ -8,15 +8,15 @@ app.use(express.urlencoded({ extended: true }));
 
 //datbase
 
-app.get("*", (req, res) => {
-	res.status(404).json({
-		data: { message: "Endpoint doesn't exist" },
+app.get("/api/hello", (req, res) => {
+	res.status(200).json({
+		data: { message: "Tudiman" },
 	});
 });
 
-app.get("/api/hello", (req, res) => {
+app.get("*", (req, res) => {
 	res.status(404).json({
-		data: { message: "Tudiman" },
+		data: { message: "Endpoint doesn't exist" },
 	});
 });
 
