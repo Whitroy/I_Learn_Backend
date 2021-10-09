@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node-dev ./src/index.ts",
     "build": "tsc",
-    "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src"
+    "postinstall": "npm run build"
   },
   "engines": { "node": "12.22.1" },
   "devDependencies": {
