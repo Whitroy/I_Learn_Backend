@@ -14,6 +14,12 @@ app.get("*", (req, res) => {
 	});
 });
 
+app.get("/api/hello", (req, res) => {
+	res.status(404).json({
+		data: { message: "Tudiman" },
+	});
+});
+
 try {
 	app.listen(process.env.PORT || port, (): void => {
 		console.log(
