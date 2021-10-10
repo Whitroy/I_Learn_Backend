@@ -9,6 +9,23 @@ export class JWTService {
 	}
 
 	async sign(sub: object) {
-		const token = jwt.sign(sub, process.env.ACCESS_SECRET_KEY!);
+		const token = jwt.sign(sub, process.env.JWT_SECRET_KEY!);
+		return token;
+	}
+
+	async verify(token: string) {
+		try {
+			const data = <{ role: "S" | "T" }>(
+				jwt.verify(token, process.env.JWT_SECRET_KEY!)
+			);
+			return data;
+		} catch (e) {
+			console.error(e);
+			throw e;
+		}
+	}
+
+	decode(token: string) {
+		return jwt.decode(token);
 	}
 }

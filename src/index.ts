@@ -1,18 +1,13 @@
 import express, { Application } from "express";
 import { AppService } from "./services/AppService";
+import auth from "./routes/auth";
 
 const app: Application = express();
 const port = 3002;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//datbase
-
-app.get("/api/hello", (req, res) => {
-	res.status(200).json({
-		data: { message: "Tudiman" },
-	});
-});
+app.use("/api/auth", auth);
 
 app.get("*", (req, res) => {
 	res.status(404).json({
